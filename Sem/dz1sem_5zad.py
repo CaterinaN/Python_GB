@@ -11,4 +11,4 @@ Bx= int(input('Введите x точки B: '))
 By= int(input('Введите y точки B: '))
 import math
 
-print (round(float((math.sqrt((Bx-Ax)**2 +(By-Ay)**2))),2))
+print (f"расстояние между точками = {round(float((math.sqrt((Bx-Ax)**2 +(By-Ay)**2))),2)}")
