@@ -55,7 +55,7 @@
 #  Определите номер этого человека и количество монет, которые оказались у него в конце игры.
 
 number = int(input("Введите количество играков : "))
-peopels = list(range(number))
+peopels = list(range(1,number+1))
 wallet = [0 for i in range(number)]
 print("игроки :" , peopels)
 print("деньги :" ,wallet)
