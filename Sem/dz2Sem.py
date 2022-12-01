@@ -5,12 +5,84 @@
 # (-0.56) -> 11
 
 
-num = abs(float(input("Введите число: ")))
+# num = abs(float(input("Введите число: ")))
+# sum = 0
+# for i in str(num):
+#         if i != ".":
+#             sum += int(i)
+    
+# print(sum)
 
-sum = 0
-for i in str(num):
-        if i != ".":
-            sum += int(i)
+
+
+
+# 2 - Напишите программу, которая принимает на вход число N и выдает набор произведений (набор - это список) чисел от 1 до N.
+# Не используйте функцию math.factorial.
+# Пример:
+# - пусть N = 4, тогда [ 1, 2, 6, 24 ] #(1, 1*2, 1*2*3, 1*2*3*4)
+
+# num = int(input('введите  целое число: '))
+# res = 1
+# for i in range(1,num+1):
+#     print (res, end = ' ')
+#     res*=i+1
+
+
+
+
+# 3. Дан массив размера N. После каждого отрицательного элемента массива вставьте элемент с нулевым значением.
+# Пример:
+# - пусть N = 4, тогда [28, -46, 14, -14] => [28, -46, 0, 14, -14, 0]
+
+# numbers = input('введите числа массива через пробел в одну строку ').split()
+# for i in range(len(numbers)):
+#     numbers[i] = int(numbers[i])
+# print (numbers)
+# for i in range(len(numbers)+1):
+#     if numbers[i]<0:
+#         numbers.insert(i+1,0)
+# if numbers[-1]<0:
+#         numbers.append(0)
+# print(numbers)
+
+
+
+
+# 4 - По кругу стоят n человек. Ведущий посчитал m человек по кругу, начиная с первого. При этом каждый из тех,
+#  кто участвовал в этом счете, получил по одной монете, остальные получили по две монеты. Далее человек, на котором остановился счет,
+# отдает все свои монеты следующему по счету человеку, а сам выбывает из круга. Процесс продолжается с места остановки аналогичным образом до последнего человека в круге.
+#  Составьте алгоритм, который проводит эту игру. Если хотите делать паузы, то импортируйте библиотеку time и используйте оттуда функцию sleep. 
+#  Определите номер этого человека и количество монет, которые оказались у него в конце игры.
+
+number = int(input("Введите количество играков : "))
+peopels = list(range(number))
+wallet = [0 for i in range(number)]
+print("игроки :" , peopels)
+print("деньги :" ,wallet)
+
+while len(peopels)!= 1:
+    number_piople = (int(input("введите номер участника : ")))% number
+    print("счет  до игрока :" ,number_piople)
+    for i in range(number):
+        if i < number_piople:
+            wallet[i]+=1
+        elif i==number_piople:
+            wallet[(i+1)%number]+=wallet[i]+1
+        else:
+            wallet[i]+=2
+    
+    
+    peopels.pop(number_piople)
+    print("выбыл игрок :",number_piople)
+    wallet.pop(number_piople)
+
+    print("игроки ", peopels)
+    print("деньги ", wallet)
+    number-=1
+  
+    print("осталось в игре", number )
     
 
-print(sum)
+if len(peopels) == 1:
+    print("победитель",peopels)
+    print("деньги", wallet)
